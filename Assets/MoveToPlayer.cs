@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class spawner : MonoBehaviour
+public class MoveToPlayer : MonoBehaviour
 {
-   [SerializeField] private GameObject prefab;
-   [SerializeField] private Transform target;
-   [SerializeField] private float speed = 1f;
-
+    public GameObject prefab;
+    public Transform target;
+    public float speed = 1f;
+    // Start is called before the first frame update
     void Start()
     {
-        InstantiateObject();
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
         //moves the boid to the target
@@ -20,17 +22,6 @@ public class spawner : MonoBehaviour
         {
             prefab.transform.position = Vector3.MoveTowards(prefab.transform.position, target.position, speed * Time.deltaTime);
             prefab.transform.LookAt(target.position);
-        }
-    }
-
-    private void InstantiateObject()
-    {
-        //spawns a boid
-        if (prefab != null)
-        {
-            prefab = Instantiate(prefab, transform.position, Quaternion.identity);
-           
-
         }
     }
 }
