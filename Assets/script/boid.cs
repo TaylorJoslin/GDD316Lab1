@@ -32,7 +32,7 @@ public class boid : MonoBehaviour
         foreach (Collider boid in detectBoids)
         {
             
-            boid.transform.position += transform.forward * Time.deltaTime * KnockbackForce;
+            boid.transform.position += transform.position * Time.deltaTime * KnockbackForce;
 
         }
 

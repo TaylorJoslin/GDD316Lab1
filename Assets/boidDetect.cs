@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class boidDetect : MonoBehaviour
 {
@@ -9,8 +10,6 @@ public class boidDetect : MonoBehaviour
     [SerializeField] private LayerMask boidLayer;
 
     [SerializeField] private float KnockbackForce;
-
-    
 
 
     // Start is called before the first frame update
@@ -34,7 +33,16 @@ public class boidDetect : MonoBehaviour
         }
     }
 
-   
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //   if(other.gameObject.CompareTag("boid"))
+    //    {
+    //        other.transform.position += transform.forward * Time.deltaTime * 10;
+    //    }
+    //}
+
+    
+
 
     private void OnDrawGizmosSelected()
     {
