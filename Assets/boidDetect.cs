@@ -33,4 +33,14 @@ public class boidDetect : MonoBehaviour
 
         }
     }
+
+   
+
+    private void OnDrawGizmosSelected()
+    {
+        if (startPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(startPoint.position, detectRange);
+    }
 }

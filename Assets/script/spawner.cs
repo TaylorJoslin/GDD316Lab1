@@ -8,6 +8,8 @@ public class spawner : MonoBehaviour
    [SerializeField] private Transform target;
    [SerializeField] private float speed = 1f;
 
+    
+
     void Start()
     {
         InstantiateObject();
@@ -21,6 +23,8 @@ public class spawner : MonoBehaviour
             prefab.transform.position = Vector3.MoveTowards(prefab.transform.position, target.position, speed * Time.deltaTime);
             prefab.transform.LookAt(target.position);
         }
+
+        
     }
 
     private void InstantiateObject()
