@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class spawner : MonoBehaviour
 {
-   [SerializeField] private GameObject prefab,prefab2, prefab3, prefab4;
+   [SerializeField] private GameObject prefab,prefab2, prefab3, prefab4, prefab5, prefab6;
    [SerializeField] private Transform target;
    [SerializeField] private float speed = 1f;
+   [SerializeField] private float speedY = 0.7f;
 
     
 
@@ -27,7 +28,7 @@ public class spawner : MonoBehaviour
 
         if (prefab2 != null && target != null)
         {
-            prefab2.transform.position = Vector3.MoveTowards(prefab2.transform.position, target.position, speed * Time.deltaTime);
+            prefab2.transform.position = Vector3.MoveTowards(prefab2.transform.position, target.position, speedY * Time.deltaTime);
             prefab2.transform.LookAt(target.position);
         }
 
@@ -39,8 +40,20 @@ public class spawner : MonoBehaviour
 
         if (prefab4 != null && target != null)
         {
-            prefab4.transform.position = Vector3.MoveTowards(prefab4.transform.position, target.position, speed * Time.deltaTime);
+            prefab4.transform.position = Vector3.MoveTowards(prefab4.transform.position, target.position, speedY * Time.deltaTime);
             prefab4.transform.LookAt(target.position);
+        }
+
+        if (prefab5 != null && target != null)
+        {
+            prefab5.transform.position = Vector3.MoveTowards(prefab5.transform.position, target.position, speed * Time.deltaTime);
+            prefab5.transform.LookAt(target.position);
+        }
+
+        if (prefab6 != null && target != null)
+        {
+            prefab6.transform.position = Vector3.MoveTowards(prefab6.transform.position, target.position, speedY * Time.deltaTime);
+            prefab6.transform.LookAt(target.position);
         }
 
 
@@ -71,6 +84,16 @@ public class spawner : MonoBehaviour
         {
             var spawnSpot = new Vector3(Random.Range(-7, 7), 0, (Random.Range(-7, 7)));
             prefab4 = Instantiate(prefab4, spawnSpot, Quaternion.identity);
+        }
+        if (prefab5 != null)
+        {
+            var spawnSpot = new Vector3(Random.Range(-7, 7), 0, (Random.Range(-7, 7)));
+            prefab5 = Instantiate(prefab5, spawnSpot, Quaternion.identity);
+        }
+        if (prefab6 != null)
+        {
+            var spawnSpot = new Vector3(Random.Range(-7, 7), 0, (Random.Range(-7, 7)));
+            prefab6 = Instantiate(prefab6, spawnSpot, Quaternion.identity);
         }
     }
 }

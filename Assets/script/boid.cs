@@ -31,8 +31,19 @@ public class boid : MonoBehaviour
 
         foreach (Collider boid in detectBoids)
         {
-            
-            boid.transform.position += transform.position * Time.deltaTime * KnockbackForce;
+            //Rigidbody rb = boid.GetComponent<Rigidbody>();
+
+            //if (rb != null)
+            //{
+            //    // Calculate knockback direction
+            //    Vector3 knockbackDirection = transform.position - boid.transform.position;
+            //    knockbackDirection.Normalize();
+
+            //    // Apply knockback force
+            //    rb.AddForce(knockbackDirection * KnockbackForce, ForceMode.Impulse);
+            //}
+
+            boid.transform.position -= transform.position.normalized * Time.deltaTime * KnockbackForce;
 
         }
 
